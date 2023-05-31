@@ -59,6 +59,9 @@ COPY --from=frontend_builder /usr/src/app/web/build /usr/src/app/api/static/
 COPY ./api /usr/src/app/api
 COPY --chmod=0755 scripts/deploy.sh /usr/src/app/deploy.sh
 
+RUN mkdir -p /data/db
+RUN mkdir -p /usr/src/app/weights
+
 RUN pip install --no-cache-dir ./api
 
 EXPOSE 8008
